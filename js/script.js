@@ -52,12 +52,12 @@ let quoteNumber = 0;
 //const getRandomQuote = upper => Math.floor(Math.random() * upper);
 
 const getRandomQuote = () => {
-do {
-    quoteNumber = Math.floor(Math.random() * quotes.length);
-} while (quoteNumber == savedNumber)
-savedNumber = quoteNumber;
+    do {
+        quoteNumber = Math.floor(Math.random() * quotes.length);
+    } while (quoteNumber == savedNumber)
+    savedNumber = quoteNumber;
 
-return quotes[quoteNumber];
+    return quotes[quoteNumber];
 }
 
 /***
@@ -65,20 +65,20 @@ return quotes[quoteNumber];
  ***/
 
 const printQuote = () => {
-const el = getRandomQuote();
-let html = `
-    <p class="quote">${el.quote}</p>
-    <p class="source">${el.source}`;
-if (el.citation) {
-    html += ` <span class="citation">${el.citation}</span>`;
-}
-if (el.year) {
-    html += ` <span class="year">${el.year}</span>`;
-}
+    const el = getRandomQuote();
+    let html = `
+        <p class="quote">${el.quote}</p>
+        <p class="source">${el.source}`;
+    if (el.citation) {
+        html += ` <span class="citation">${el.citation}</span>`;
+    }
+    if (el.year) {
+        html += ` <span class="year">${el.year}</span>`;
+    }
 
-html +=`</p>`;
+    html +=`</p>`;
 
-document.querySelector('#quote-box').innerHTML = html;
+    document.querySelector('#quote-box').innerHTML = html;
 }
 
 /***
