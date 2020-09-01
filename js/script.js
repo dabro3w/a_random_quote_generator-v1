@@ -21,7 +21,6 @@ const quotes = [
     {
         quote: 'Some quote 2',
         source: 'Source 2'
-        
     },
     {
         quote: 'Some quote 3',
@@ -60,26 +59,35 @@ const getRandomQuote = () => {
     return quotes[quoteNumber];
 }
 
+const randomColor = () => Math.floor(Math.random() * 256);
+
+const changeBGColor = () => {
+    document.body.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+
+}
+
 /***
  * `printQuote` function
  ***/
 
 const printQuote = () => {
-    const el = getRandomQuote();
+    const randomQuote = getRandomQuote();
     let html = `
-        <p class="quote">${el.quote}</p>
-        <p class="source">${el.source}`;
-    if (el.citation) {
-        html += ` <span class="citation">${el.citation}</span>`;
+        <p class="quote">${randomQuote.quote}</p>
+        <p class="source">${randomQuote.source}`;
+    if (randomQuote.citation) {
+        html += ` <span class="citation">${randomQuote.citation}</span>`;
     }
-    if (el.year) {
-        html += ` <span class="year">${el.year}</span>`;
+    if (randomQuote.year) {
+        html += ` <span class="year">${randomQuote.year}</span>`;
     }
 
     html +=`</p>`;
 
     document.querySelector('#quote-box').innerHTML = html;
+    changeBGColor();
 }
+
 
 /***
  * Initial print
