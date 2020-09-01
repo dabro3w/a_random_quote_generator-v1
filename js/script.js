@@ -59,6 +59,11 @@ const getRandomQuote = () => {
     return quotes[quoteNumber];
 }
 
+
+/***
+ * `randomColor` and `changeBGColor` functions
+ ***/
+
 const randomColor = () => Math.floor(Math.random() * 256);
 
 const changeBGColor = () => {
